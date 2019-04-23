@@ -1,0 +1,167 @@
+<html>
+<head>
+
+ <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js"></script>
+<style>
+body{
+background-image:url('1.png');
+background-position:center;
+background-size:cover;
+}
+h3{
+text-align:center;
+font-weight:bold;
+}
+select{
+margin-top:10px;
+}
+.block {
+    display: block;
+    width: 70%;
+	font-weight:bold;
+    border: none;
+    background-color: white;
+    padding: 14px 28px;
+    cursor: pointer;
+    text-align: center;
+}
+.hidden{
+display:none;
+}
+
+#dim{
+margin-top:10px;
+font-family:Arial;
+font-size:20px;
+padding:20px;
+border-radius:20px;
+border:2px solid pink;
+background:white;
+}
+
+#myVideo {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  min-width: 100%; 
+  min-height: 100%;
+}
+
+</style>
+  
+  </head>
+<body>
+<!--
+<video autoplay muted loop id="myVideo">
+  <source src="1.mp4" type="video/mp4">
+</video>
+-->
+<div class="shah">
+
+
+<div class="container">
+	<div class="row" id="dim">
+		<div class="col-sm-12" style="margin-top:12px;">
+			<h3 >Fill in the blanks.</h3>  
+		</div>	
+	</div>
+<br>
+
+	<div class="row" id="dim">
+		<div class="col-sm-1" style="margin-top:12px;">
+		1.
+		</div>
+		<div class="col-sm-9"  >
+		My name is <select id="first"></select>.  </div>
+		
+	</div>
+	<div class="row" id="dim">
+		<div class="col-sm-1" style="margin-top:12px;">
+		2.
+		</div>
+		<div class="col-sm-9"  >
+		I live in <select id="firs"></select>.
+		</div>
+		
+	</div>
+	<div class="row" id="dim">
+		<div class="col-sm-1" style="margin-top:12px;">
+		3.
+		</div>
+		<div class="col-sm-9"  >
+		I have completed my <select id="fir"></select> from Delhi University. 
+		</div>
+	</div>
+	<br>
+	<div class="row" >
+	<div class="col-sm-4">
+    <!--<button class="button"   onclick="window.location.reload()"><span>Reset </span></button>-->
+	</div>
+	
+	<div class="col-sm-4">
+	<center><button class="block" id="submit" onclick="go()" ><span>Submit </span></button></center>
+	</div>
+
+	<div class="col-sm-4">
+	<!--<button class="button" onclick="show()"><span>Answer Key </span></button>-->
+	</div>
+	</div>
+</div>
+</div>
+<div class="shah2 hidden">
+<center><img src="1.jpg" ></center>
+</div>
+<audio id="sound" src="clapping.mp3"></audio>
+
+<script>
+window.onload = function(e){ 
+    $('#first').append("<option selected disabled>     </option><option>Education</option><option>Shahrukh</option><option>Saharanpur</option>");
+    $('#firs').append("<option selected disabled>     </option><option>Education</option><option>Shahrukh</option><option>Saharanpur</option>");
+    $('#fir').append("<option selected disabled>     </option><option>Education</option><option>Shahrukh</option><option>Saharanpur</option>");
+   // $('#fi').append("<option selected disabled>     </option><option>when</option><option>so</option><option>but</option><option>or</option><option>and</option><option>because</option>");
+   // $('#f').append("<option selected disabled>     </option><option>when</option><option>so</option><option>but</option><option>or</option><option>and</option><option>because</option>");
+    //$('#q').append("<option selected disabled>     </option><option>when</option><option>so</option><option>but</option><option>or</option><option>and</option><option>because</option>");
+    }
+
+
+
+function go() {
+ var a1 = document.getElementById("first");
+ var a2 = document.getElementById("firs");
+ var a3 = document.getElementById("fir");
+ 
+
+
+var ans1= a1.options[a1.selectedIndex].text;
+var ans2= a2.options[a2.selectedIndex].text;
+var ans3= a3.options[a3.selectedIndex].text;
+
+if(ans1=="Shahrukh" && ans2=="Saharanpur" && ans3=="Education"  ){
+var audio = document.getElementById("sound");
+       audio.play();
+	   $('.shah').addClass('hidden')
+	   $('#myVideo').addClass('hidden')
+	   $('.shah2').removeClass('hidden')
+}
+else{
+
+//var audio = document.getElementById("audio2");
+    //   audio.play();
+}
+}
+
+function show() {
+	  $('#submit').attr('disabled',true);
+	  $('#first').val('Shahrukh');
+	  $('#firs').val('Saharanpur');
+	  $('#fir').val('Education');
+}
+
+
+</script>
+
+</body>
+</html>
